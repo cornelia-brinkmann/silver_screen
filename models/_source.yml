@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_screen
+    database: silver_screen
+    schema: PUBLIC
+    tables:
+      - name: movies
+
+      - name: invoices
+
+      - name: nj_001
+
+      - name: nj_002
+
+      - name: nj_003

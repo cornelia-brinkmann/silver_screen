@@ -1,0 +1,39 @@
+models:
+  - name: stg_silver_screen_movies
+    description: description
+    columns:
+    - name: movie_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
+  
+  - name: stg_silver_screen_nj_002
+    description: description
+    columns:
+    - name: movie_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
+
+  
+  - name: stg_silver_screen_nj_001
+    description: description
+    columns:
+    - name: movie_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null   
+
+  - name: stg_silver_screen_nj_003
+    description: description
+    columns:
+    - name: transaction_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null   
+
+  
