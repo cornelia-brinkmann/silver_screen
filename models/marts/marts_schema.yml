@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: revenue_tickets_sold
+    description: "revenue per movie and month"
+    columns:
+      - name: movie_id
+        description: "Primary Key for movie"
+        tests:
+          - not_null
+
+      - name: month
+        description: "Month of ticket was bought "
+        tests:
+          - not_null
+      
+      - name: location_id
+        description: "location where the ticket was bought"
+        tests: 
+          - not_null
+
+      - name: tickets_sold
+        description: "Amount of tickets sold"
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "Total revenue"
+        tests:
+          - not_null
+          
+  - name: rental_vs_revenue
+    description: "Comparison of rental costs to revenue"
+    columns: 
+      - name: movie_title
+        tests:
+          - not_null
+  
+      - name: genre
+        tests:
+          - not_null
+    
+      - name: studio
+        tests:
+          - not_null
+    
+      - name: rental_costs
+        tests:
+          - not_null

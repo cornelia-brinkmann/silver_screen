@@ -1,6 +1,6 @@
 models:
   - name: int_location
-    description: description
+    description: merge of all three locations
     columns:
     - name: movie_id
       description: primary key
@@ -9,7 +9,7 @@ models:
         - not_null
   
   - name: int_rental_cost
-    description: description
+    description: merge of movvies with invoices
     columns:
     - name: movie_id
       description: primary key

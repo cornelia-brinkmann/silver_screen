@@ -1,38 +1,51 @@
 {{config(materialized='table')}}
 
-
+-- Data from NJ_001 (complete)
 
 SELECT
+    month,
+    transaction_id,
+    movie_id,
+    location_id,
+    ticket_amount,
+    ticket_price,
+    total_value
 
-n1.month,
+FROM {{ ref('stg_silver_screen__nj_001') }} 
 
-COALESCE (n1.transaction_id, n3.transaction_id, 'unknown') AS transaction_id,
+UNION ALL
 
-COALESCE (n1.movie_id, n2.movie_id,'unknown') AS movie_id,
+-- Data from NJ_002 with an artificial transaction_id 
 
-n1.location_id,
+SELECT 
 
-n1.ticket_amount,
+    month,
+    transaction_id,
+    movie_id,
+    location_id,
+    ticket_amount,
+    ticket_price,
+    total_value
 
-n1.ticket_price,
-
-n1.total_value
+FROM {{ ref('stg_silver_screen__nj_002') }} 
 
 
+UNION ALL
 
-FROM {{ ref('stg_silver_screen__nj_001') }} n1
+-- Data from NJ_003 (changed the column details in raw table into movie_id in Snowflake and filter product_type = 'ticket')
 
-LEFT JOIN
+SELECT 
+    month,
+    transaction_id,
+    movie_id,
+    location_id,
+    ticket_amount,
+    ticket_price,
+    total_value
 
-{{ ref('stg_silver_screen__nj_003') }} n3
+FROM {{ ref('stg_silver_screen__nj_003') }} 
 
-ON n1.transaction_id = n3.transaction_id
 
-LEFT JOIN
-
-{{ ref('stg_silver_screen__nj_002') }} n2
-
-ON n1.movie_id = n2.movie_id
 
 
 
