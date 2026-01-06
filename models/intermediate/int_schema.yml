@@ -1,0 +1,23 @@
+models:
+  - name: int_location
+    description: description
+    columns:
+    - name: movie_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
+  
+  - name: int_rental_cost
+    description: description
+    columns:
+    - name: movie_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
+
+  
+  
+
+  

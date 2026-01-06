@@ -12,7 +12,7 @@ renamed as (
         DATE_TRUNC ('month',date) AS month,
         transaction_id,
         product_type,
-        'nj_003' AS location,
+        'NJ_003' AS location_id,
         ticket_amount,
         ticket_price,
         total_value

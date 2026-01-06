@@ -11,7 +11,7 @@ renamed as (
     select
         DATE_TRUNC ('month', date) AS month,
         movie_id,
-        'nj_002' AS location,
+        'NJ_002' AS location_id,
         ticket_amount,
         ticket_price,
         total_value

@@ -2,7 +2,7 @@ SELECT
     DATE_TRUNC ('month', date ) AS month,
     transaction_id,
     movie_id,
-    'nj_001' AS location,
+    'NJ_001' AS location_id,
     ticket_amount,
     ticket_price,
     total_value
