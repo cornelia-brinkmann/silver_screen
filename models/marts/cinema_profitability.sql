@@ -10,6 +10,7 @@ SELECT
     ir.location_id, 
     ir.rental_cost, -- total rental costs for users per month for a movie, 
                                       --the monthly costs stay for raw over raw
+    rt.transaction_month,
 
     -- Window Function: Sum of the tickets over all months per movie & location
     SUM (rt.tickets_sold) OVER (PARTITION BY ir.movie_id, ir.location_id 
@@ -17,7 +18,7 @@ SELECT
     AS total_tickets_sold_per_location,
 
     -- Window Function: Total Revenue over all months per movie & Location
-    SUM (rt.revenue) OVER (PARTITION BY ir.movie_id, ir.location_id 
+    SUM (rt.total_revenue) OVER (PARTITION BY ir.movie_id, ir.location_id 
     ORDER BY ir.month) 
     AS total_revenue_per_location
 
@@ -25,7 +26,7 @@ FROM {{ ref('int_rental_cost') }} ir
 LEFT JOIN 
 {{ ref('revenue_tickets_sold') }} rt
 ON ir.movie_id = rt.movie_id
-AND ir.month = rt.month -- also important to join for the month, key: Movie ID + Month
+AND ir.month = rt.transaction_month -- also important to join for the month, key: Movie ID + Month
 AND ir.location_id = rt.location_id
     
 ORDER BY ir.movie_id, ir.month, ir.location_id

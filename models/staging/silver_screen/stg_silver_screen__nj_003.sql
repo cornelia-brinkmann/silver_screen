@@ -9,19 +9,16 @@ source as (
 renamed as (
 
     select
-        DATE_TRUNC ('month',date) :: DATE AS month,
-        COALESCE (transaction_id, 'Unknown') AS transaction_id,
-        product_type,
+        DATE_TRUNC ('month',date) :: DATE AS transaction_month,
         COALESCE (movie_id, 'Unknown') AS movie_id,-- details in raw tabele has the information movie_id for tickets
         'NJ_003' AS location_id, -- additional column for location
-        COALESCE (ticket_amount, 0) AS ticket_amount,
-        COALESCE (ticket_price, 0) AS ticket_price,
-        COALESCE (total_value, 0) AS total_value
+        COALESCE (ticket_amount, 0) AS tickets_sold,
+        COALESCE (total_value, 0) AS revenue
 
     from source
-
+    where product_type = 'ticket' -- only total_value for tickets, not snacks or drinks etc.
 )
 
 select * 
 from renamed
-where product_type = 'ticket' -- only total_value for tickets, not snacks or drinks etc.
+

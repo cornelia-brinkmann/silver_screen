@@ -9,13 +9,11 @@ source as (
 renamed as (
 
     select
-        DATE_TRUNC ('month', date) :: DATE AS month,
-        'Unknown' AS transaction_id, -- For missing column transaction_id
+        DATE_TRUNC ('month', date) :: DATE AS transaction_month,
         COALESCE (movie_id, 'Unknown') AS movie_id,
         'NJ_002' AS location_id, -- Additional column for location
-        COALESCE (ticket_amount, 0) AS ticket_amount,
-        COALESCE (ticket_price, 0) AS ticket_price,
-        COALESCE (total_value, 0) AS total_value
+        COALESCE (ticket_amount, 0) AS tickets_sold,
+        COALESCE (total_value, 0) AS revenue
 
     from source
 

@@ -1,14 +1,5 @@
 models:
-  - name: stg_silver_screen_movies
-    description: description
-    columns:
-    - name: movie_id
-      description: primary key
-      tests: # tests that would be run on the column
-        - unique
-        - not_null
-  
-  - name: stg_silver_screen_nj_002
+  - name: stg_silver_screen__invoices
     description: description
     columns:
     - name: movie_id
@@ -17,23 +8,45 @@ models:
         - unique
         - not_null
 
+    - name: invoice_id
+      description: description
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
   
-  - name: stg_silver_screen_nj_001
+  
+  - name: stg_silver_screen__movies
     description: description
     columns:
     - name: movie_id
       description: primary key
       tests: # tests that would be run on the column
         - unique
-        - not_null   
+        - not_null
 
-  - name: stg_silver_screen_nj_003
+  - name: stg_silver_screen__nj_001
     description: description
     columns:
-    - name: transaction_id
+      - name: movie_id
+        description: primary key
+        tests: # tests that would be run on the column
+          - unique
+          - not_null
+
+  - name: stg_silver_screen__nj_002
+    description: description
+    columns:
+    - name: movie_id
       description: primary key
       tests: # tests that would be run on the column
         - unique
-        - not_null   
+        - not_null
 
-  
+  - name: stg_silver_screen__nj_003
+    description: description
+    columns:
+    - name: movie_id
+      description: primary key
+      tests: # tests that would be run on the column
+        - unique
+        - not_null
