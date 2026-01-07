@@ -9,7 +9,7 @@ models:
         tests:
           - not_null
 
-      - name: month
+      - name: transaction_month
         description: "Month of ticket was bought "
         tests:
           - not_null
@@ -24,12 +24,12 @@ models:
         tests:
           - not_null
 
-      - name: revenue
+      - name: total_revenue
         description: "Total revenue"
         tests:
           - not_null
           
-  - name: rental_vs_revenue
+  - name: cinema_profitability
     description: "Comparison of rental costs to revenue"
     columns: 
       - name: movie_title
@@ -44,6 +44,6 @@ models:
         tests:
           - not_null
     
-      - name: rental_costs
+      - name: rental_cost
         tests:
           - not_null

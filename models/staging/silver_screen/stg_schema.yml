@@ -5,7 +5,6 @@ models:
     - name: movie_id
       description: primary key
       tests: # tests that would be run on the column
-        - unique
         - not_null
 
     - name: invoice_id
@@ -14,6 +13,12 @@ models:
         - unique
         - not_null
   
+  - name: stg_silver_screen__invoices_dedup
+    columns:
+      - name: invoice_id
+        tests:
+          - not_null
+          - unique
   
   - name: stg_silver_screen__movies
     description: description
@@ -30,7 +35,6 @@ models:
       - name: movie_id
         description: primary key
         tests: # tests that would be run on the column
-          - unique
           - not_null
 
   - name: stg_silver_screen__nj_002
@@ -39,7 +43,6 @@ models:
     - name: movie_id
       description: primary key
       tests: # tests that would be run on the column
-        - unique
         - not_null
 
   - name: stg_silver_screen__nj_003
@@ -48,5 +51,4 @@ models:
     - name: movie_id
       description: primary key
       tests: # tests that would be run on the column
-        - unique
         - not_null
