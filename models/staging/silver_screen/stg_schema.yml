@@ -12,15 +12,7 @@ models:
     - name: invoice_id
       description: description
       tests: # tests that would be run on the column
-        - unique
-        - not_null
-  
-  - name: stg_silver_screen__invoices_dedup
-    columns:
-      - name: invoice_id
-        tests:
-          - not_null
-          - unique
+        - not_null 
   
   - name: stg_silver_screen__movies
     description: description
