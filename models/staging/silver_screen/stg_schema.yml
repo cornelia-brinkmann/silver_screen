@@ -1,3 +1,5 @@
+version: 2
+
 models:
   - name: stg_silver_screen__invoices
     description: description
