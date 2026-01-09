@@ -10,7 +10,6 @@ SELECT
     ir.location_id, 
     ir.rental_cost, -- total rental costs for users per month for a movie, 
                                       --the monthly costs stay for raw over raw
-    rt.transaction_month,
 
     -- Window Function: Sum of the tickets over all months per movie & location
     SUM (rt.tickets_sold) OVER (PARTITION BY ir.movie_id, ir.location_id 
